@@ -8,6 +8,7 @@ const config = {
     // You can add multiple users by doing username: 'password'.
     interstellar: "password",
     bao: "bao",
+    gael: "814",
   },
 };
 
