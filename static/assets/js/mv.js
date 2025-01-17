@@ -1,6 +1,18 @@
+let qp;
+
+try {
+  qp = window.top.location.pathname === "/rx";
+} catch {
+  try {
+    qp = window.parent.location.pathname === "/rx";   
+  } catch {
+    qp = false;
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Blocked Hostnames Check
-  const blockedHostnames = [
+  /* const blockedHostnames = [
     "gointerstellar.app",
     "computers-science.com",
     "roundrockisd.online",
@@ -13,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     script.type = "text/javascript";
     script.src = "//flatjeep.com/5e/6b/27/5e6b2776400180cc548a7dfd8ab3f717.js";
     document.body.appendChild(script);
-  }
+  } */
 
   const nav = document.querySelector(".f-nav");
 
@@ -30,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="f-nav-right">
         <a class="navbar-link" href="/./up"><i class="fa-solid fa-gamepad navbar-icon"></i><an>&#71;&#97;</an><an>&#109;&#101;&#115;</an></a>
         <a class="navbar-link" href="/./yz"><i class="fa-solid fa-phone navbar-icon"></i><an>&#65;&#112;</an><an>&#112;&#115;</an></a>
-        ${window.top.location.pathname === "/rx" ? "" : '<a class="navbar-link" href="/./rx"><i class="fa-solid fa-laptop navbar-icon"></i><an>&#84;&#97;</an><an>&#98;&#115;</an></a>'}
+        ${qp ? "" : '<a class="navbar-link" href="/./rx"><i class="fa-solid fa-laptop navbar-icon"></i><an>&#84;&#97;</an><an>&#98;&#115;</an></a>'}
         <a class="navbar-link" href="/./vk"><i class="fa-solid fa-gear navbar-icon settings-icon"></i><an>&#83;&#101;&#116;</an><an>&#116;&#105;&#110;&#103;</an></a>
       </div>`;
     nav.innerHTML = html;
